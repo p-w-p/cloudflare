@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cloudflare Pages Demo Hub</title>
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:500,700,900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f5f8fb;
+      --ink: #0f172a;
+      --muted: #64748b;
+      --panel: rgba(255, 255, 255, 0.92);
+      --border: rgba(148, 163, 184, 0.26);
+      --primary: #0ea5e9;
+      --green: #16a34a;
+      --yellow: #d97706;
+      --red: #dc2626;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 12%, rgba(14, 165, 233, 0.16), transparent 28%),
+        radial-gradient(circle at 90% 80%, rgba(59, 130, 246, 0.14), transparent 26%),
+        var(--bg);
+      min-height: 100vh;
+    }
+
+    .shell {
+      width: min(1080px, 94vw);
+      margin: 0 auto;
+      padding: 2.2rem 0 2.8rem;
+    }
+
+    .hero {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 1.25rem 1.3rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: #075985;
+      background: rgba(14, 165, 233, 0.12);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      font-weight: 700;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 0.5rem;
+      height: 0.5rem;
+      border-radius: 999px;
+      background: #0ea5e9;
+      box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.16);
+    }
+
+    h1 {
+      margin: 0.7rem 0 0.35rem;
+      font-size: clamp(1.45rem, 3.1vw, 2.5rem);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.98rem;
+      line-height: 1.55;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .grid {
+      margin-top: 1rem;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.9rem;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 1rem;
+      box-shadow: 0 16px 36px rgba(15, 23, 42, 0.06);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.04rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      margin: 0.45rem 0 0.85rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.55;
+    }
+
+    .links {
+      display: grid;
+      gap: 0.55rem;
+    }
+
+    .link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      border: 1px solid rgba(148, 163, 184, 0.28);
+      border-radius: 14px;
+      padding: 0.62rem 0.72rem;
+      text-decoration: none;
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 0.88rem;
+      background: rgba(255, 255, 255, 0.72);
+      transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease;
+    }
+
+    .link small {
+      color: var(--muted);
+      font-weight: 500;
+      font-size: 0.77rem;
+    }
+
+    .link:hover {
+      transform: translateY(-1px);
+      border-color: rgba(14, 165, 233, 0.4);
+      box-shadow: 0 8px 20px rgba(14, 165, 233, 0.12);
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 0.22rem 0.55rem;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .tag.green { background: rgba(34, 197, 94, 0.14); color: var(--green); }
+    .tag.yellow { background: rgba(245, 158, 11, 0.16); color: var(--yellow); }
+    .tag.red { background: rgba(239, 68, 68, 0.14); color: var(--red); }
+    .tag.blue { background: rgba(14, 165, 233, 0.14); color: var(--primary); }
+
+    footer {
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+    }
+
+    @media (max-width: 860px) {
+      .grid { grid-template-columns: 1fr; }
+      .shell { padding-top: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <span class="eyebrow">Demo Hub</span>
+      <h1>Cloudflare 页面演示入口 (づ｡◕‿‿◕｡)づ</h1>
+      <p class="subtitle">这个页面用于演示异常页面与CDN信息页。点击即可跳转查看样式和交互。</p>
+    </section>
+
+    <section class="grid" aria-label="demo links">
+      <article class="card">
+        <h2>Workers页面</h2>
+        <p>用于展示Workers页面。</p>
+        <div class="links">
+          <a class="link" href="https://cdn.cattery.work" target="_blank" rel="noopener noreferrer">
+            <span>CDN Info 页面 <small>https://cdn.cattery.work</small></span>
+            <span class="tag blue">info</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>异常静态页</h2>
+        <p>用于展示不同威胁等级页面。</p>
+        <div class="links">
+          <a class="link" href="100X.html" target="_blank" rel="noopener noreferrer"><span>100X 解析错误页</span><span class="tag yellow">warn</span></a>
+          <a class="link" href="5xx.html" target="_blank" rel="noopener noreferrer"><span>5XX 连接异常页</span><span class="tag yellow">warn</span></a>
+          <a class="link" href="captcha.html" target="_blank" rel="noopener noreferrer"><span>CAPTCHA 验证页</span><span class="tag green">safe</span></a>
+          <a class="link" href="under_attack.html" target="_blank" rel="noopener noreferrer"><span>Under Attack 检查页</span><span class="tag red">high</span></a>
+          <a class="link" href="waf_block.html" target="_blank" rel="noopener noreferrer"><span>WAF 拦截页</span><span class="tag red">high</span></a>
+        </div>
+      </article>
+    </section>
+
+    <footer>项目链接: https://github.com/p-w-p/cloudflare</footer>
+  </main>
+</body>
+</html>

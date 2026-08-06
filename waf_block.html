@@ -1,18 +1,16 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>访问已被拦截 | ${hostText}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,900" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/shared.css">
 </head>
 <body class="antialiased font-sans">
-    <script id="page-config" type="application/json">{"title":"访问已被拦截 | ${hostText}","hero":"访问被拦截了哦ヽ(*。>Д<)o゜","messageHtml":"<h1 class=\"oops\">好好反省为什么会被拦截叭！(ノ｀Д)ノ</h1>","contentHtml":"我也帮不了你哦，只能换个IP惹!","image":"assets/images/waf_block.png"}</script>
+    <script id="page-config" type="application/json">{"title":"访问已被拦截 | ${hostText}","accent":"red","hero":"请求已被拦截(╯︵╰,)","messageHtml":"<p class=\"page-summary\">当前请求未通过安全策略校验。</p>","contentHtml":"<p class=\"highlight\">如果你认为这是误拦截，可以稍后再试或更换网络环境喔。</p>","image":"assets/images/waf_block.png"}</script>
     <div id="page-root"></div>
-    <script src="assets/js/theme.js"></script>
-    <script src="assets/js/page-utils.js"></script>
-    <script src="assets/js/page-renderer.js"></script>
+    <script src="assets/js/page.js"></script>
 </body>
 </html>
